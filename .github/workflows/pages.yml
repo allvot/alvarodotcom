@@ -24,7 +24,8 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"
+          # Keep in sync with Dockerfile (ruby:3.2.2) to avoid subtle build diffs
+          ruby-version: "3.2.2"
           bundler-cache: true
 
       - name: Setup Pages
@@ -34,16 +35,58 @@ jobs:
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
+          # Some versions of `configure-pages` expose base information under different outputs.
+          # We capture both and fallback in the script.
           PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        shell: bash
         run: |
           set -euo pipefail
-          REPO="${GITHUB_REPOSITORY#*/}"
-          if [[ "$REPO" == *.github.io ]]; then
-            BASEURL=""
-          else
-            BASEURL="/$REPO"
+          set -x
+
+          ruby -v
+          bundle -v
+          bundle exec jekyll -v
+
+          # `configure-pages` may output a full URL (e.g. "https://user.github.io/repo")
+          # but Jekyll's flags are split:
+          # - `--url` must be an origin ("https://user.github.io")
+          # - `--baseurl` must be a path ("", "/repo")
+          RAW_BASEURL="${PAGES_BASE_URL:-}"
+          RAW_BASEPATH="${PAGES_BASE_PATH:-}"
+
+          ORIGIN=""
+          BASEURL="$RAW_BASEURL"
+          if [[ "$RAW_BASEURL" =~ ^(https?://[^/]+)(.*)$ ]]; then
+            ORIGIN="${BASH_REMATCH[1]}"
+            BASEURL="${BASH_REMATCH[2]}"
           fi
-          bundle exec jekyll build --destination "_site" --baseurl "$BASEURL"
+          # Fallback: some versions expose the path separately ("" or "/repo")
+          if [[ -z "$BASEURL" && -n "$RAW_BASEPATH" ]]; then
+            BASEURL="$RAW_BASEPATH"
+          fi
+
+          # Normalize:
+          # - empty or "/" => ""
+          # - ensure leading "/" for non-empty paths
+          BASEURL="${BASEURL%%/}"
+          if [[ "$BASEURL" == "" || "$BASEURL" == "/" ]]; then
+            BASEURL=""
+          elif [[ "$BASEURL" != /* ]]; then
+            BASEURL="/$BASEURL"
+          fi
+
+          echo "Pages base_url: ${RAW_BASEURL}"
+          echo "Pages base_path: ${RAW_BASEPATH}"
+          echo "Jekyll --url:   ${ORIGIN}"
+          echo "Jekyll --baseurl: ${BASEURL}"
+
+          bundle exec jekyll clean
+          if [[ -n "$ORIGIN" ]]; then
+            bundle exec jekyll build --trace --destination "_site" --url "$ORIGIN" --baseurl "$BASEURL"
+          else
+            bundle exec jekyll build --trace --destination "_site" --baseurl "$BASEURL"
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
