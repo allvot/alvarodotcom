@@ -1,0 +1,201 @@
+name: "Alvaro Alday"
+headline: "Web Developer"
+tagline: "Senior Backend Engineer"
+
+location:
+  city: "Monterrey"
+  region: "Nuevo León"
+  country: "México"
+
+contact:
+  phone: "+52 (656) 360-9100"
+  email: "all.day.m35@gmail.com"
+
+introduction: >-
+  I'm an experienced senior backend engineer and code enthusiast with great interest in beautifully crafted code and high performance solutions.
+  I love projects that challenge my capacities and force me to be creative.
+  I’ve led teams that achieved goals with tight time constraints and high expectations.
+
+skills:
+  - category: "Systems & Software"
+    items:
+      - "Design of software systems & design patterns"
+      - "Version control: Git"
+  - category: "Databases"
+    items:
+      - "Database design and normalization"
+      - "PostgreSQL"
+      - "MySQL"
+      - "Redis"
+  - category: "Cloud / DevOps"
+    items:
+      - "AWS: S3, ECS, RDS, EC2, IAM, CloudWatch, Lambda"
+      - "Infrastructure as Code: Terraform"
+      - "Docker"
+  - category: "Languages"
+    items:
+      - name: Ruby
+        years: 6
+        logo: "fas fa-gem"
+      - name: Python
+        years: 1
+        logo: "fas fa-python"
+      - name: JavaScript
+        years: 3
+        logo: "fas fa-js"
+      - name: C#
+        years: 1
+        logo: "fas fa-csharp"
+  - category: "Testing"
+    items:
+      - "BDD/TDD: RSpec, Jest, Pytest"
+  - category: "Frameworks"
+    items:
+      - name: "Ruby on Rails"
+        years: 6
+        logo: "fas fa-gem"
+      - name: "FastAPI"
+        years: 1
+        logo: "fas fa-laravel"
+      - name: "NodeJS"
+        years: 1
+        logo: "fas fa-node"
+  - category: "Operating Systems"
+    items:
+      - name: Linux
+        years: 5
+        logo: "fas fa-linux"
+      - name: Mac
+        years: 2
+        logo: "fas fa-apple"
+
+experience:
+  - company: "ZappyChat (CloseBot)"
+    title: "Senior Backend Developer"
+    location: "Monterrey, NL, Mexico"
+    start: "Apr 2024"
+    end: "Present"
+    highlights:
+      - "Took full ownership of the backend platform, leading the redesign of core systems to support multiple AI providers, reduce response times, and significantly improve maintainability."
+      - "Designed and implemented backend services in Python/FastAPI, integrating advanced AI capabilities and ensuring scalable, secure, and high-performance data flows."
+      - "Identified and resolved critical issues across existing application components, improving reliability and system behavior under load."
+      - "Modernized the application’s architecture and development practices, introducing clearer boundaries, better patterns, and more consistent engineering workflows."
+      - "Assessed security risks across backend services and cloud infrastructure, strengthening API protection, credential handling, and overall operational security."
+      - "Built monitoring and observability tools for SRE and business teams, enabling real-time visibility into technical performance, errors, throughput, and key business metrics using AWS CloudWatch and custom dashboards."
+    tech:
+      - "NodeJS (16/18)"
+      - "JavaScript"
+      - "VueJS"
+      - "Jest"
+      - "Python"
+      - "FastAPI"
+      - "Pytest"
+      - "MySQL"
+      - "AWS (S3, Lambda, EC2, ECS, CloudWatch)"
+      - "Docker"
+      - "Git (GitHub)"
+      - "OpenAI API"
+      - "Google Generative AI"
+
+  - company: "Apptegy"
+    title: "Senior Backend Developer"
+    location: "Monterrey, NL, Mexico"
+    start: "Nov 2022"
+    end: "Jan 2024"
+    highlights:
+      - "Developed and maintained large-scale web applications using Ruby on Rails 7, implementing new features, system improvements, and performance optimizations."
+      - "Designed backend components and rebuilt several application modules to improve reliability, scalability, and maintainability."
+      - "Collaborated with cross-functional teams to enhance system architecture, improve code quality, and streamline deployment workflows."
+      - "Strengthened backend performance by tuning SQL queries, optimizing data flows, and introducing caching strategies with Redis."
+      - "Supported CI/CD and deployment pipelines using Jenkins, Docker, and AWS services."
+    tech:
+      - "Ruby on Rails 7"
+      - "JavaScript"
+      - "VueJS"
+      - "Mocha"
+      - "PostgreSQL"
+      - "Redis"
+      - "Jenkins"
+      - "AWS (S3)"
+      - "Docker"
+      - "Git (GitHub)"
+
+  - company: "Vault"
+    title: "Senior Backend Developer"
+    location: "Austin, TX, USA"
+    start: "Feb 2022"
+    end: "Nov 2022"
+    highlights:
+      - "Developed and enhanced backend services for the Student Loan Benefits platform, enabling employers to manage and automate employee education loan payments."
+      - "Built reliable tools and backend modules for tracking contributions, managing loan data, and improving reporting accuracy for internal and external stakeholders."
+      - "Improved reliability and performance across Ruby on Rails 6 systems by optimizing SQL, refactoring legacy components, and enhancing data integrity checks."
+      - "Integrated AWS services to improve deployments, logging, and monitoring."
+    tech:
+      - "Ruby on Rails 6"
+      - "PostgreSQL"
+      - "AWS (CodeBuild, CloudWatch)"
+      - "Docker"
+      - "Git (GitHub)"
+      - "Ubuntu 20"
+
+  - company: "Shastic"
+    title: "Lead Software Developer"
+    location: "Berkeley, CA, USA"
+    start: "Jan 2021"
+    end: "Feb 2022"
+    highlights:
+      - "Led a distributed engineering team, overseeing architecture, development practices, code quality, and delivery timelines."
+      - "Designed and deployed cloud infrastructure using AWS, Terraform, CloudFormation, Lambda, and S3, improving system scalability and operational reliability."
+      - "Developed major backend features for Shastic’s automation products, including the early stages of the DocPush system."
+      - "Improved observability and operational stability by enhancing logging, monitoring pipelines, and cloud resource organization."
+      - "Provided technical leadership, mentoring junior developers, conducting code reviews, and ensuring adherence to software engineering best practices."
+    tech:
+      - "Ruby on Rails 5.7"
+      - "CoffeeScript"
+      - "JavaScript"
+      - "MySQL 8"
+      - "AWS (CodeBuild, CloudWatch, Terraform, CloudFormation, Lambda, S3)"
+      - "Redis"
+      - "Docker"
+      - "Git (Bitbucket)"
+      - "Jira"
+
+  - company: "Shastic"
+    title: "Full Stack Developer"
+    location: "Berkeley, CA, USA"
+    start: "Aug 2018"
+    end: "Jan 2021"
+    highlights:
+      - "Designed, developed, and maintained full-stack applications for financial institutions, improving performance, reliability, and user workflows."
+      - "Built backend features and automation tools using Ruby on Rails, AWS Lambda, and custom tracking systems."
+      - "Improved system performance across multiple products by optimizing backend logic, queries, and infrastructure."
+      - "Collaborated with product and engineering teams to deliver new features, integrations, and internal tools."
+    tech:
+      - "Ruby on Rails 5.7"
+      - "CoffeeScript"
+      - "JavaScript"
+      - "MySQL 8"
+      - "AWS (CodeBuild, CloudWatch, Lambda, S3)"
+      - "Redis"
+      - "Docker"
+      - "Git (Bitbucket)"
+      - "Jira"
+
+education:
+  - school: "UACJ"
+    degree: "Master in Applied Computing"
+    location: "Juárez, Chihuahua, México"
+    start: "Aug 2016"
+    end: "Jul 2018"
+    notes:
+      - "Specialization in software engineering"
+      - "Scholarship from CONACyT (National Science and Technology Council)"
+  - school: "UACJ"
+    degree: "Computer Systems Engineer"
+    location: "Juárez, Chihuahua, México"
+    start: "Aug 2011"
+    end: "Jul 2016"
+    notes:
+      - "Focus on networking and programming, as well as databases and data structures"
+
+
