@@ -8,8 +8,6 @@ permalink: /education/
 
 {% assign cv = site.data.cv %}
 
-## Education
-
 {% for edu in cv.education %}
 ### {{ edu.school }} — {{ edu.degree }}
 
