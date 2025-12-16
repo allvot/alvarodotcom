@@ -19,55 +19,95 @@ introduction: >-
 skills:
   - category: "Systems & Software"
     items:
-      - "Design of software systems & design patterns"
-      - "Version control: Git"
+      - name: "System design & design patterns"
+        description: "Designing maintainable architectures with clear boundaries, solid abstractions, and pragmatic patterns."
+        icon_class: "fas fa-sitemap"
+      - name: "Git"
+        description: "Everyday workflows (branching strategies, code review, releases, and incident-friendly history)."
+        icon_class: "fab fa-git-alt"
   - category: "Databases"
     items:
-      - "Database design and normalization"
-      - "PostgreSQL"
-      - "MySQL"
-      - "Redis"
+      - name: "Database design & normalization"
+        description: "Schema modeling, constraints, indexing strategy, and query-driven design for long-term stability."
+        icon_class: "fas fa-database"
+      - name: "PostgreSQL"
+        description: "Relational modeling, performance tuning, and production operations (indexes, queries, migrations)."
+        icon_class: "fas fa-database"
+      - name: "MySQL"
+        description: "Production backend workloads, query optimization, and operational debugging under load."
+        icon_class: "fas fa-database"
+      - name: "Redis"
+        description: "Caching, rate limiting, background job primitives, and low-latency data access patterns."
+        icon_class: "fas fa-bolt"
   - category: "Cloud / DevOps"
     items:
-      - "AWS: S3, ECS, RDS, EC2, IAM, CloudWatch, Lambda"
-      - "Infrastructure as Code: Terraform"
-      - "Docker"
+      - name: "AWS"
+        description: "Building and operating services on AWS with secure IAM practices and observable deployments."
+        details: "S3, ECS, RDS, EC2, IAM, CloudWatch, Lambda"
+        icon_class: "fab fa-aws"
+      - name: "Terraform"
+        description: "Infrastructure as Code for repeatable environments and safer change management."
+        icon_class: "fas fa-code-branch"
+      - name: "Docker"
+        description: "Containerized dev and deployment workflows for consistency across environments."
+        icon_class: "fab fa-docker"
   - category: "Languages"
     items:
-      - name: Ruby
+      - name: "Ruby"
         years: 6
-        logo: "fas fa-gem"
-      - name: Python
+        description: "Backend-heavy Rails work: APIs, domain modeling, performance tuning, and testing culture (RSpec)."
+        icon_class: "fas fa-gem"
+      - name: "Python"
         years: 1
-        logo: "fas fa-python"
-      - name: JavaScript
+        description: "FastAPI services, integrations (AI providers), testing with Pytest, and production hardening."
+        icon_class: "fab fa-python"
+      - name: "JavaScript"
         years: 3
-        logo: "fas fa-js"
-      - name: C#
+        description: "Backend tooling and full-stack collaboration; Node services and app integrations."
+        icon_class: "fab fa-js"
+      - name: "C#"
         years: 1
-        logo: "fas fa-csharp"
+        description: "General-purpose development experience and interoperability with broader systems."
+        icon_class: "fas fa-code"
+      - name: "PHP"
+        description: "Web backend development, including Laravel-based applications."
+        icon_class: "fab fa-php"
+      - name: "CoffeeScript"
+        description: "Legacy frontend/backend codebases and incremental modernization work."
+        icon_class: "fas fa-mug-hot"
   - category: "Testing"
     items:
-      - "BDD/TDD: RSpec, Jest, Pytest"
+      - name: "BDD/TDD"
+        description: "Test-first workflows with pragmatic coverage, fast feedback loops, and maintainable suites."
+        details: "RSpec, Jest, Pytest"
+        icon_class: "fas fa-vial"
   - category: "Frameworks"
     items:
       - name: "Ruby on Rails"
         years: 6
-        logo: "fas fa-gem"
+        description: "Large Rails apps: performance, modularization, APIs, background jobs, and production operations."
+        icon_class: "fas fa-gem"
       - name: "FastAPI"
         years: 1
-        logo: "fas fa-laravel"
+        description: "High-performance Python APIs with strong typing, clear boundaries, and solid test coverage."
+        icon_class: "fas fa-bolt"
       - name: "NodeJS"
         years: 1
-        logo: "fas fa-node"
+        description: "Backend services and integrations across modern JS ecosystems."
+        icon_class: "fab fa-node-js"
+      - name: "Laravel"
+        description: "PHP framework experience for full-featured web apps."
+        icon_class: "fab fa-laravel"
   - category: "Operating Systems"
     items:
-      - name: Linux
+      - name: "Linux"
         years: 5
-        logo: "fas fa-linux"
-      - name: Mac
+        description: "Daily backend development and ops on Ubuntu/Debian environments."
+        icon_class: "fab fa-linux"
+      - name: "macOS"
         years: 2
-        logo: "fas fa-apple"
+        description: "Primary workstation for development with a Unix-native toolchain."
+        icon_class: "fab fa-apple"
 
 experience:
   - company: "ZappyChat (CloseBot)"

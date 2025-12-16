@@ -28,6 +28,12 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: all_day_m
 github_username:  allvot
 
+# Chirpy profile image (shows in the left sidebar)
+avatar: /assets/img/alvaro_alday.jpeg
+
+# Social/OpenGraph preview image
+social_preview_image: /assets/img/alvaro_alday.jpeg
+
 # Build settings
 theme: jekyll-theme-chirpy
 plugins:
