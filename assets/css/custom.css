@@ -1,8 +1,10 @@
-/* Custom site colors (non-destructive overrides)
+/* Custom site theme overrides (Chirpy + Bootstrap)
  *
- * We only override CSS variables exposed by the Chirpy theme + Bootstrap variables.
- * This keeps upgrades safe: if the theme changes its internal selectors, our overrides
- * remain additive and easy to adjust.
+ * Goal: "hacker" feel — deeper blacks/greys, neon accents (blue/purple/green),
+ * high-contrast borders, and gradient borders. Also remove orange-ish highlight
+ * feel by pushing links + emphasis into the neon palette.
+ *
+ * We prefer overriding Chirpy's CSS variables so upgrades remain safe.
  */
 
 /* =========
@@ -10,77 +12,222 @@
  * ========= */
 
 :root {
-  /* Your brand accent (light mode) */
-  --aa-accent: #7c3aed; /* violet */
-  --aa-accent-rgb: 124, 58, 237;
+  /* Surfaces */
+  --aa-bg-0: #07090c; /* near-black */
+  --aa-bg-1: #0b0f14; /* deep graphite */
+  --aa-bg-2: #101723; /* slightly lifted panel */
 
-  /* Your brand accent (dark mode) */
-  --aa-accent-dark: #a78bfa;
-  --aa-accent-dark-rgb: 167, 139, 250;
+  /* Text */
+  --aa-text: #d7dde6;
+  --aa-text-muted: #8f9aa8;
+  --aa-heading: #eef2f7;
+
+  /* Neon accents */
+  --aa-cyan: #00d1ff;
+  --aa-cyan-rgb: 0, 209, 255;
+  --aa-purple: #a855f7;
+  --aa-purple-rgb: 168, 85, 247;
+  --aa-green: #22c55e;
+  --aa-green-rgb: 34, 197, 94;
+
+  /* Gradients */
+  --aa-border-gradient: linear-gradient(135deg, var(--aa-cyan), var(--aa-purple), var(--aa-green));
+  --aa-glow-cyan: rgba(var(--aa-cyan-rgb), 0.22);
+  --aa-glow-purple: rgba(var(--aa-purple-rgb), 0.22);
+  --aa-glow-green: rgba(var(--aa-green-rgb), 0.18);
+
+  /* Shadow tuning (overridden for light mode below) */
+  --aa-card-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 10px 30px rgba(0, 0, 0, 0.35);
+  --aa-tag-shadow: 0 0 18px rgba(var(--aa-cyan-rgb), 0.06);
+  --aa-hover-shadow:
+    0 0 0 1px rgba(var(--aa-purple-rgb), 0.25) inset,
+    0 0 22px rgba(var(--aa-cyan-rgb), 0.12),
+    0 0 22px rgba(var(--aa-green-rgb), 0.10);
 }
 
-/* ===========================
- * Light mode (forced or auto)
- * =========================== */
+/* =====================================
+ * Apply the "hacker" theme in all modes
+ * ===================================== */
 
-/* Auto mode: no data-mode attribute */
-@media (prefers-color-scheme: light) {
-  html:not([data-mode]) {
-    --link-color: var(--aa-accent);
-    --toc-highlight: var(--aa-accent);
-    --checkbox-checked-color: var(--aa-accent);
-    --btn-share-hover-color: var(--aa-accent);
+html {
+  /* Surfaces */
+  --main-bg: var(--aa-bg-0);
+  --card-bg: var(--aa-bg-1);
+  --sidebar-bg: var(--aa-bg-1);
+  --topbar-bg: rgba(7, 9, 12, 0.72);
+  --main-border-color: rgba(var(--aa-cyan-rgb), 0.20);
+  --sidebar-border-color: rgba(var(--aa-purple-rgb), 0.22);
 
-    /* Subtle UI accents */
-    --sidebar-hover-bg: rgba(var(--aa-accent-rgb), 0.08);
-    --topbar-bg: rgba(255, 255, 255, 0.78);
+  /* Text */
+  --text-color: var(--aa-text);
+  --text-muted-color: var(--aa-text-muted);
+  --heading-color: var(--aa-heading);
+  --label-color: var(--aa-text-muted);
 
-    /* Bootstrap primary (buttons, badges, etc.) */
-    --bs-primary: var(--aa-accent);
-    --bs-primary-rgb: var(--aa-accent-rgb);
-  }
+  /* Links + highlights (ditch orange) */
+  --link-color: var(--aa-cyan);
+  --link-underline-color: rgba(var(--aa-cyan-rgb), 0.35);
+  --toc-highlight: var(--aa-purple);
+  --checkbox-checked-color: var(--aa-green);
+  --btn-share-hover-color: var(--aa-cyan);
+
+  /* Borders / controls */
+  --btn-border-color: rgba(var(--aa-cyan-rgb), 0.30);
+  --search-border-color: rgba(var(--aa-green-rgb), 0.22);
+  --input-focus-border-color: rgba(var(--aa-purple-rgb), 0.50);
+  --blockquote-border-color: rgba(var(--aa-purple-rgb), 0.45);
+  --link-underline-color: rgba(var(--aa-cyan-rgb), 0.35);
+
+  /* Sidebar hover */
+  --sidebar-hover-bg: rgba(var(--aa-cyan-rgb), 0.08);
+
+  /* Bootstrap primary */
+  --bs-primary: var(--aa-purple);
+  --bs-primary-rgb: var(--aa-purple-rgb);
+
+  /* Fonts (hacker / terminal vibe) */
+  --aa-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --aa-font-mono-tight: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
-/* Forced light */
-html[data-mode="light"] {
-  --link-color: var(--aa-accent);
-  --toc-highlight: var(--aa-accent);
-  --checkbox-checked-color: var(--aa-accent);
-  --btn-share-hover-color: var(--aa-accent);
-
-  --sidebar-hover-bg: rgba(var(--aa-accent-rgb), 0.08);
-  --topbar-bg: rgba(255, 255, 255, 0.78);
-
-  --bs-primary: var(--aa-accent);
-  --bs-primary-rgb: var(--aa-accent-rgb);
+/* Apply the font stack across the site */
+body {
+  font-family: var(--aa-font-mono) !important;
+  letter-spacing: 0.15px;
 }
 
-/* ==========================
- * Dark mode (forced or auto)
- * ========================== */
+/* Headings + sidebar/menu should feel crisp */
+header .post-desc,
+#toc-bar .label,
+#search-results a,
+h1, h2, h3, h4, h5,
+#sidebar .site-title,
+#sidebar ul li.nav-item a.nav-link,
+#topbar-title {
+  font-family: var(--aa-font-mono-tight) !important;
+  letter-spacing: 0.25px;
+}
 
-/* Auto mode: no data-mode attribute */
+/* TOC popup uses its own font-family in Chirpy */
+#toc-popup #toc-popup-content {
+  font-family: var(--aa-font-mono-tight) !important;
+}
+
+/* Code blocks: keep monospace but slightly smaller for density */
+code, pre, kbd, samp {
+  font-family: var(--aa-font-mono) !important;
+  font-size: 0.95em;
+}
+
+/* Dark mode: make sidebar/menu text higher-contrast (less dim) */
 @media (prefers-color-scheme: dark) {
   html:not([data-mode]) {
-    --link-color: var(--aa-accent-dark);
-    --toc-highlight: var(--aa-accent-dark);
-    --checkbox-checked-color: var(--aa-accent-dark);
-    --btn-share-hover-color: var(--aa-accent-dark);
-    --sidebar-hover-bg: rgba(var(--aa-accent-dark-rgb), 0.10);
-    --bs-primary: var(--aa-accent-dark);
-    --bs-primary-rgb: var(--aa-accent-dark-rgb);
+    /* Body text: brighter + cleaner contrast */
+    --text-color: #e3e9f2;
+    --text-muted-color: rgba(227, 233, 242, 0.74);
+    --heading-color: #f4f7fb;
+    --label-color: rgba(227, 233, 242, 0.72);
+
+    /* A few theme-adjacent text vars that otherwise stay too gray */
+    --post-list-text-color: rgba(227, 233, 242, 0.80);
+    --topbar-text-color: rgba(227, 233, 242, 0.88);
+
+    --sidebar-muted-color: rgba(215, 221, 230, 0.90); /* menu items */
+    --sidebar-active-color: var(--aa-cyan); /* active item */
+    --site-title-color: var(--aa-heading);
+    --site-subtitle-color: rgba(215, 221, 230, 0.72);
   }
 }
 
-/* Forced dark */
 html[data-mode="dark"] {
-  --link-color: var(--aa-accent-dark);
-  --toc-highlight: var(--aa-accent-dark);
-  --checkbox-checked-color: var(--aa-accent-dark);
-  --btn-share-hover-color: var(--aa-accent-dark);
-  --sidebar-hover-bg: rgba(var(--aa-accent-dark-rgb), 0.10);
-  --bs-primary: var(--aa-accent-dark);
-  --bs-primary-rgb: var(--aa-accent-dark-rgb);
+  --text-color: #e3e9f2;
+  --text-muted-color: rgba(227, 233, 242, 0.74);
+  --heading-color: #f4f7fb;
+  --label-color: rgba(227, 233, 242, 0.72);
+  --post-list-text-color: rgba(227, 233, 242, 0.80);
+  --topbar-text-color: rgba(227, 233, 242, 0.88);
+
+  --sidebar-muted-color: rgba(215, 221, 230, 0.90);
+  --sidebar-active-color: var(--aa-cyan);
+  --site-title-color: var(--aa-heading);
+  --site-subtitle-color: rgba(215, 221, 230, 0.72);
+}
+
+/* Light mode: keep the palette, but reduce shadow intensity */
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]) {
+    --aa-card-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.02) inset,
+      0 10px 24px rgba(0, 0, 0, 0.12);
+    --aa-tag-shadow: 0 0 10px rgba(var(--aa-cyan-rgb), 0.04);
+    --aa-hover-shadow:
+      0 0 0 1px rgba(var(--aa-purple-rgb), 0.16) inset,
+      0 0 14px rgba(var(--aa-cyan-rgb), 0.08),
+      0 0 12px rgba(var(--aa-green-rgb), 0.06);
+  }
+}
+
+html[data-mode="light"] {
+  --aa-card-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.02) inset,
+    0 10px 24px rgba(0, 0, 0, 0.12);
+  --aa-tag-shadow: 0 0 10px rgba(var(--aa-cyan-rgb), 0.04);
+  --aa-hover-shadow:
+    0 0 0 1px rgba(var(--aa-purple-rgb), 0.16) inset,
+    0 0 14px rgba(var(--aa-cyan-rgb), 0.08),
+    0 0 12px rgba(var(--aa-green-rgb), 0.06);
+}
+
+/* ======================
+ * Gradient border "skins"
+ * ====================== */
+
+/* Cards/previews: keep Chirpy layout but give them a neon gradient border */
+.post-preview {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    var(--aa-border-gradient) border-box !important;
+  box-shadow: var(--aa-card-shadow) !important;
+}
+
+/* Chips/tags: gradient border + slightly brighter text */
+.post-tag,
+.tag {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(var(--main-bg), var(--main-bg)) padding-box,
+    var(--aa-border-gradient) border-box !important;
+  color: var(--aa-text) !important;
+  box-shadow: var(--aa-tag-shadow);
+}
+
+.post-tags .post-tag:hover,
+.tag:hover {
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    var(--aa-border-gradient) border-box !important;
+  box-shadow: var(--aa-hover-shadow);
+}
+
+/* HR: subtle neon line */
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--aa-cyan-rgb), 0.55), rgba(var(--aa-purple-rgb), 0.50), rgba(var(--aa-green-rgb), 0.45), transparent);
+}
+
+/* Prompts: neon left border */
+blockquote[class^="prompt-"],
+blockquote[class*=" prompt-"] {
+  border-left-color: rgba(var(--aa-cyan-rgb), 0.55) !important;
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(var(--aa-purple-rgb), 0.35);
 }
 
 
