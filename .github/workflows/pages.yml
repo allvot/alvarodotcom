@@ -18,6 +18,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Heartbeat (prove runner started)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Runner is alive"
+          echo "ref=${GITHUB_REF}"
+          echo "sha=${GITHUB_SHA}"
+          echo "actor=${GITHUB_ACTOR}"
+
       - name: Checkout
         uses: actions/checkout@v4
 
