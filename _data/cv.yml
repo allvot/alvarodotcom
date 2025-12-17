@@ -14,9 +14,9 @@ contact:
   github: "https://github.com/allvot"
 
 introduction: >-
-  I'm an experienced senior backend engineer and code enthusiast with great interest in beautifully crafted code and high performance solutions.
-  I love projects that challenge my capacities and force me to be creative.
-  I’ve led teams that achieved goals with tight time constraints and high expectations.
+  I’m a senior backend engineer who builds complex systems from scratch—turning ambiguous problems into reliable, high-performance products.
+  I care deeply about clean architecture, scalability, and craftsmanship, and I enjoy work that pushes the boundaries of what’s possible.
+  I’m focused on building the future with pragmatic engineering, thoughtful automation, and AI-powered solutions that deliver real impact.
 
 skills:
   - category: "Systems & Software"
@@ -25,6 +25,7 @@ skills:
         description: "Designing maintainable architectures with clear boundaries, solid abstractions, and pragmatic patterns."
         icon_class: "fas fa-sitemap"
       - name: "Git"
+        years: 7
         description: "Everyday workflows (branching strategies, code review, releases, and incident-friendly history)."
         icon_class: "fab fa-git-alt"
   - category: "AI automation"
@@ -62,6 +63,7 @@ skills:
   - category: "Cloud / DevOps"
     items:
       - name: "AWS"
+        years: 7
         description: "Building and operating services on AWS with secure IAM practices and observable deployments."
         details: "S3, ECS, RDS, EC2, IAM, CloudWatch, Lambda"
         icon_class: "fab fa-aws"
@@ -69,6 +71,7 @@ skills:
         description: "Infrastructure as Code for repeatable environments and safer change management."
         icon_class: "fas fa-code-branch"
       - name: "Docker"
+        years: 7
         description: "Containerized dev and deployment workflows for consistency across environments."
         icon_class: "fab fa-docker"
   - category: "Languages"
@@ -98,6 +101,7 @@ skills:
   - category: "Testing"
     items:
       - name: "BDD/TDD"
+        years: 7
         description: "Test-first workflows with pragmatic coverage, fast feedback loops, and maintainable suites."
         details: "RSpec, Jest, Pytest"
         icon_class: "fas fa-vial"

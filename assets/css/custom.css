@@ -76,8 +76,8 @@ html {
   --label-color: var(--aa-text-muted);
 
   /* Links + highlights (ditch orange) */
-  --link-color: var(--aa-cyan);
-  --link-underline-color: rgba(var(--aa-cyan-rgb), 0.35);
+  --link-color: var(--aa-cyan) !important;
+  --link-underline-color: rgba(var(--aa-cyan-rgb), 0.35) !important;
   --toc-highlight: var(--aa-purple);
   --checkbox-checked-color: var(--aa-green);
   --btn-share-hover-color: var(--aa-cyan);
@@ -87,7 +87,7 @@ html {
   --search-border-color: rgba(var(--aa-green-rgb), 0.22);
   --input-focus-border-color: rgba(var(--aa-purple-rgb), 0.50);
   --blockquote-border-color: rgba(var(--aa-purple-rgb), 0.45);
-  --link-underline-color: rgba(var(--aa-cyan-rgb), 0.35);
+  --link-underline-color: rgba(var(--aa-cyan-rgb), 0.35) !important;
 
   /* Sidebar hover */
   --sidebar-hover-bg: rgba(var(--aa-cyan-rgb), 0.08);
@@ -189,6 +189,19 @@ html[data-mode="light"] {
     0 0 12px rgba(var(--aa-green-rgb), 0.06);
 }
 
+/* Light mode: links should be purple (match the gradient palette) */
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]) {
+    --link-color: var(--aa-purple) !important;
+    --link-underline-color: rgba(var(--aa-purple-rgb), 0.35) !important;
+  }
+}
+
+html[data-mode="light"] {
+  --link-color: var(--aa-purple) !important;
+  --link-underline-color: rgba(var(--aa-purple-rgb), 0.35) !important;
+}
+
 /* ======================
  * Gradient border "skins"
  * ====================== */
@@ -255,6 +268,26 @@ blockquote[class*=" prompt-"] {
 /* Selection highlight */
 ::selection {
   background: rgba(var(--aa-purple-rgb), 0.35);
+}
+
+/* ======================
+ * Link hover (replace Chirpy orange)
+ * ====================== */
+/* Chirpy hardcodes an orange hover color (#d2603a) for most links.
+ * Override it to use our neon green accent used in the site's gradients.
+ */
+#page-category a:hover,
+#page-tag a:hover,
+#access-lastmod a:hover,
+.post-tail-wrapper .license-wrapper > a:hover,
+#search-results a:hover,
+footer a:hover,
+#topbar #breadcrumb a:hover,
+.post-meta a:not([class]):hover,
+.content a:not(.img-link):hover {
+  color: var(--aa-green) !important;
+  border-bottom: 1px solid var(--aa-green) !important;
+  text-decoration: none;
 }
 
 
