@@ -8,7 +8,12 @@ permalink: /
 
 ## {{ cv.name }}
 
-**{{ cv.tagline }}** · {{ cv.location.city }}, {{ cv.location.region }}, {{ cv.location.country }}
+**{{ cv.tagline }}**
+
+<span class="text-muted">
+  <i class="fas fa-map-marker-alt fa-fw"></i>
+  {{ cv.location.city }}, {{ cv.location.region }}, {{ cv.location.country }}
+</span>
 
 {{ cv.introduction }}
 
@@ -16,23 +21,31 @@ permalink: /
 
 {% assign contact_email = cv.contact.email %}
 {% assign contact_phone = cv.contact.phone %}
+{% assign contact_linkedin = cv.contact.linkedin %}
+{% assign contact_github = cv.contact.github %}
 {% assign contact_phone_href = contact_phone | replace: ' ', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' %}
 
 > **Let’s talk**
 >
-> - Email: [{{ contact_email }}](mailto:{{ contact_email }})
-> - Phone: [{{ contact_phone }}](tel:{{ contact_phone_href }})
+> - <i class="fas fa-envelope fa-fw"></i> [{{ contact_email }}](mailto:{{ contact_email }})
+> - <i class="fas fa-phone fa-fw"></i> [{{ contact_phone }}](tel:{{ contact_phone_href }})
+> - <i class="fab fa-linkedin fa-fw"></i> [LinkedIn]({{ contact_linkedin }})
+> - <i class="fab fa-github fa-fw"></i> [GitHub]({{ contact_github }})
 {: .prompt-info }
 
 ## Current role
 
-**{{ current.title }}** @ {{ current.company }}
-{{ current.start }} – {{ current.end }}
+**{{ current.title }}** @ **{{ current.company }}**
+
+<span class="text-muted">
+  <i class="far fa-calendar-alt fa-fw"></i>
+  {{ current.start }} – {{ current.end }}
+</span>
 
 More details: [Experience]({{ '/experience/' | relative_url }})
 
 ## Explore
 
-- [Skills]({{ '/skills/' | relative_url }})
-- [Experience]({{ '/experience/' | relative_url }})
-- [Education]({{ '/education/' | relative_url }})
+- <i class="fas fa-bolt fa-fw"></i> [Skills]({{ '/skills/' | relative_url }})
+- <i class="fas fa-briefcase fa-fw"></i> [Experience]({{ '/experience/' | relative_url }})
+- <i class="fas fa-graduation-cap fa-fw"></i> [Education]({{ '/education/' | relative_url }})
