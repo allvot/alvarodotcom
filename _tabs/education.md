@@ -4,20 +4,25 @@ order: 4
 layout: page
 title: Education
 permalink: /education/
+toc: true
 ---
 
 {% assign cv = site.data.cv %}
 
 {% for edu in cv.education %}
-### {{ edu.school }} — {{ edu.degree }}
+## {{ edu.degree }}
 
-**{{ edu.start }} – {{ edu.end }}** · {{ edu.location }}
+**{{ edu.school }}**
+{{ edu.start }} – {{ edu.end }} · {{ edu.location }}
 
 {% if edu.notes and edu.notes.size > 0 %}
+### Highlights
 {% for note in edu.notes %}
 - {{ note }}
 {% endfor %}
 {% endif %}
+
+---
 
 {% endfor %}
 
