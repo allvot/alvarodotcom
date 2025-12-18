@@ -1,0 +1,14 @@
+<section class="aa-home-explore" aria-label="Explore">
+  <ul class="list-unstyled mb-0">
+    {% for tab in site.tabs %}
+      <li class="mb-1">
+        <a href="{{ tab.url | relative_url }}">
+          <i class="fa-fw {{ tab.icon }}"></i>
+          {{ tab.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+

@@ -31,14 +31,8 @@ permalink: /
 > - <i class="fab fa-github fa-fw"></i> [GitHub]({{ contact_github }})
 {: .prompt-info }
 
+## Services
 {% include home/services-preview.html %}
 
 ## Explore
-
-- <i class="fas fa-bolt fa-fw"></i> [Skills]({{ '/skills/' | relative_url }})
-- <i class="fas fa-briefcase fa-fw"></i> [Experience]({{ '/experience/' | relative_url }})
-- <i class="fas fa-graduation-cap fa-fw"></i> [Education]({{ '/education/' | relative_url }})
-- <i class="fas fa-handshake fa-fw"></i> [Services]({{ '/services/' | relative_url }})
-
----
-
+{% include home/explore.html %}
