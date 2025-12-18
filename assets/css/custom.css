@@ -13,9 +13,10 @@
 
 :root {
   /* Surfaces */
-  --aa-bg-0: #07090c; /* near-black */
-  --aa-bg-1: #0b0f14; /* deep graphite */
-  --aa-bg-2: #101723; /* slightly lifted panel */
+  --aa-bg-0: #07070a; /* near-black (canonical) */
+  --aa-bg-1: #090910; /* slightly lifted surface (cool near-black) */
+  --aa-bg-2: #0c0f16; /* lifted panel */
+  --aa-bg-3: #0f131c; /* hover/alt surface */
 
   /* Text */
   --aa-text: #d7dde6;
@@ -70,14 +71,6 @@
  * ===================================== */
 
 html {
-  /* Surfaces */
-  --main-bg: var(--aa-bg-0);
-  --card-bg: var(--aa-bg-1);
-  --sidebar-bg: var(--aa-bg-1);
-  --topbar-bg: rgba(7, 9, 12, 0.72);
-  --main-border-color: rgba(var(--aa-cyan-rgb), 0.20);
-  --sidebar-border-color: rgba(var(--aa-purple-rgb), 0.22);
-
   /* Text */
   --text-color: var(--aa-text);
   --text-muted-color: var(--aa-text-muted);
@@ -160,6 +153,35 @@ code, pre, kbd, samp {
 /* Dark mode: make sidebar/menu text higher-contrast (less dim) */
 @media (prefers-color-scheme: dark) {
   html:not([data-mode]) {
+    /* =========================
+     * Dark mode surfaces (darker)
+     * ========================= */
+    --main-bg: var(--aa-bg-0);
+    --card-bg: var(--aa-bg-1);
+    --sidebar-bg: var(--aa-bg-1);
+    --button-bg: var(--aa-bg-1);
+    --topbar-bg: rgba(7, 7, 10, 0.78);
+    --mask-bg: rgba(7, 7, 10, 0.92);
+
+    --main-border-color: rgba(255, 255, 255, 0.06);
+    --sidebar-border-color: rgba(255, 255, 255, 0.07);
+    --btn-border-color: rgba(255, 255, 255, 0.10);
+    --btn-backtotop-border-color: rgba(255, 255, 255, 0.10);
+
+    /* Hover/tints (Chirpy uses an overlay with opacity) */
+    --card-hovor-bg: rgba(255, 255, 255, 0.10);
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+
+    /* Tables */
+    --tb-odd-bg: rgba(255, 255, 255, 0.02);
+    --tb-even-bg: rgba(255, 255, 255, 0.01);
+    --tb-border-color: rgba(255, 255, 255, 0.06);
+
+    /* Code blocks */
+    --highlight-bg-color: #07070a;
+    --inline-code-bg: rgba(255, 255, 255, 0.05);
+    --code-header-muted-color: rgba(255, 255, 255, 0.07);
+
     /* Body text: brighter + cleaner contrast */
     --text-color: #e3e9f2;
     --text-muted-color: rgba(227, 233, 242, 0.74);
@@ -183,6 +205,32 @@ code, pre, kbd, samp {
 }
 
 html[data-mode="dark"] {
+  /* =========================
+   * Dark mode surfaces (darker)
+   * ========================= */
+  --main-bg: var(--aa-bg-0);
+  --card-bg: var(--aa-bg-1);
+  --sidebar-bg: var(--aa-bg-1);
+  --button-bg: var(--aa-bg-1);
+  --topbar-bg: rgba(7, 7, 10, 0.78);
+  --mask-bg: rgba(7, 7, 10, 0.92);
+
+  --main-border-color: rgba(255, 255, 255, 0.06);
+  --sidebar-border-color: rgba(255, 255, 255, 0.07);
+  --btn-border-color: rgba(255, 255, 255, 0.10);
+  --btn-backtotop-border-color: rgba(255, 255, 255, 0.10);
+
+  --card-hovor-bg: rgba(255, 255, 255, 0.10);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+
+  --tb-odd-bg: rgba(255, 255, 255, 0.02);
+  --tb-even-bg: rgba(255, 255, 255, 0.01);
+  --tb-border-color: rgba(255, 255, 255, 0.06);
+
+  --highlight-bg-color: #07070a;
+  --inline-code-bg: rgba(255, 255, 255, 0.05);
+  --code-header-muted-color: rgba(255, 255, 255, 0.07);
+
   --text-color: #e3e9f2;
   --text-muted-color: rgba(227, 233, 242, 0.74);
   --heading-color: #f4f7fb;
