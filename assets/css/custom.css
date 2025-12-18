@@ -467,6 +467,26 @@ a:not(.btn):focus > code.highlighter-rouge {
   margin-top: var(--bs-gutter-y) !important;
 }
 
+/* Bootstrap gutter utility variables (prod-safe):
+ * If any later-loaded CSS re-declares `.row { --bs-gutter-y: 0; }` after Bootstrap utilities,
+ * the `g-* / gx-* / gy-*` classes can stop affecting `--bs-gutter-*`.
+ *
+ * Re-assert the variables here (custom.css loads last), so `.row.g-3` always yields vertical spacing.
+ * Mirrors Bootstrap’s spacing scale.
+ */
+.g-0, .gx-0 { --bs-gutter-x: 0 !important; }
+.g-0, .gy-0 { --bs-gutter-y: 0 !important; }
+.g-1, .gx-1 { --bs-gutter-x: 0.25rem !important; }
+.g-1, .gy-1 { --bs-gutter-y: 0.25rem !important; }
+.g-2, .gx-2 { --bs-gutter-x: 0.5rem !important; }
+.g-2, .gy-2 { --bs-gutter-y: 0.5rem !important; }
+.g-3, .gx-3 { --bs-gutter-x: 1rem !important; }
+.g-3, .gy-3 { --bs-gutter-y: 1rem !important; }
+.g-4, .gx-4 { --bs-gutter-x: 1.5rem !important; }
+.g-4, .gy-4 { --bs-gutter-y: 1.5rem !important; }
+.g-5, .gx-5 { --bs-gutter-x: 3rem !important; }
+.g-5, .gy-5 { --bs-gutter-y: 3rem !important; }
+
 .aa-services .aa-services-engines .post-tag i {
   opacity: 0.9;
 }
