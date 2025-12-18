@@ -1,4 +1,5 @@
 {% assign services = site.data.services %}
+{% assign contact_email = site.data.cv.contact.email %}
 
 <section class="aa-home-section aa-services" aria-label="Services">
   <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-3">
@@ -56,7 +57,7 @@
     <a class="btn btn-primary btn-sm aa-btn-gradient" href="{{ '/services/' | relative_url }}">
       Explore services
     </a>
-    <span class="text-muted ms-2">Or email me to discuss a custom engagement.</span>
+    <span class="text-muted ms-2">Or <a href="mailto:{{ contact_email }}">email me</a> to discuss a custom engagement.</span>
   </div>
 </section>
 
