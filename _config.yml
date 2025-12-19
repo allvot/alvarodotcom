@@ -24,7 +24,8 @@ email: all.day.m35@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   I'm an experienced senior backend engineer and code enthusiast with great interest in beautifully crafted code and high performance solutions.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "allvot.github.io"
+# IMPORTANT: must include the scheme (https://) or Google may reject sitemap/canonical URLs.
+url: "https://allvot.github.io"
 twitter_username: all_day_m
 github_username:  allvot
 lang: en
